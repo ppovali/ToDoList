@@ -1,4 +1,2 @@
 # ToDoList
-
-A simple Java project starter.
-Education project.
+Simply ToDoList on Java - Education project
