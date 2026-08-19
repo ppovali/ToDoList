@@ -55,4 +55,16 @@ public class Task {
     public User getUser() {
         return user;
     }
+
+    @Override
+    public String toString() {
+        return "Task{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", status=" + status +
+                ", priority=" + priority +
+                ", category=" + category +
+                ", user=" + user +
+                '}';
+    }
 }
