@@ -1,0 +1,16 @@
+services:
+  backend:
+    build: .
+    ports:
+      - "8080:8080"
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: todolist
+    volumes:
+      - db_data:/var/lib/postgresql
+
+volumes:
+  db_data:
