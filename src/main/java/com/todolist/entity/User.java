@@ -22,6 +22,9 @@ public class User {
         return username;
     }
     public void setUsername(String username) {
+        if (username == null || username.trim().isEmpty()) {
+            throw new IllegalArgumentException("Username cannot be null or empty");
+        }
         this.username = username;
     }
 
@@ -29,6 +32,9 @@ public class User {
         return password;
     }
     public void setPassword(String password) {
+        if (password == null) {
+            throw new IllegalArgumentException("Password cannot be null");
+        }
         this.password = password;
     }
 
