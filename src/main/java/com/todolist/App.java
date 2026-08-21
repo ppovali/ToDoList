@@ -1,23 +1,24 @@
 package com.todolist;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
+import com.todolist.entity.User;
+import com.todolist.repository.UserRepository;
 
 public class App {
     public static void main(String[] args) {
-        String url = "jdbc:postgresql://localhost:5432/todolist";
-        String user = "postgres";
-        String password = "postgres";
+        User user1 = new User(1L, "John Doe", "pass1234");
+        UserRepository userRepository = new UserRepository();
+        
+        try {
+            userRepository.saveUser(user1);
+            
+            System.out.println("User saved successfully");
 
-        try (Connection connection = DriverManager.getConnection(url, user, password)) {
-            if (connection != null) {
-                System.out.println("Connected to the database!");
-            } else {
-                System.out.println("Failed to make connection!");
-            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        
+        
+        System.out.println(userRepository.findByUsername(user1.getUsername()));
     }
 }

@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.ArrayList;
 import java.util.List;
+import java.time.LocalDateTime;
 import com.todolist.entity.Status;
 import com.todolist.entity.Category;
 import com.todolist.entity.Priority;
@@ -18,7 +19,7 @@ public class TaskService {
         if (!taskMap.containsKey(user.getId())) {
             taskMap.put(user.getId(), new ArrayList<>());
         }
-        taskMap.get(user.getId()).add(new Task(taskIdCounter++, title, status, priority, category, user));
+        taskMap.get(user.getId()).add(new Task(taskIdCounter++, title, status, priority, category, LocalDateTime.now(), user));
     }
 
     public List<Task> getTasksByUser(User user) {
